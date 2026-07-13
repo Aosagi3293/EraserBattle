@@ -10,9 +10,18 @@ public class PlayerControl : MonoBehaviour
     private Vector2 flickStartPos;
     private Vector2 flickEndPos;
 
+    [SerializeField]
+    private float flickPower;
+
+    [SerializeField]
+    private float maxForce;
+
+    private Rigidbody rb;
+
     private void Start()
     {
-        player = this.gameObject;
+        player = gameObject;
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -33,15 +42,23 @@ public class PlayerControl : MonoBehaviour
 
     private void Flick()
     {
-        // フリックの強さと方向の計算
+        // フリック情報
         Vector2 flickVector = flickEndPos - flickStartPos;
-        float flickStrength = flickVector.magnitude;
+
+        // フリック方向
         Vector2 flickDirection = flickVector.normalized;
 
-        // フリックの強さの制限
-        float flickForce = Mathf.Clamp(flickStrength, 1f, 1000f);
+        // フリックの強さ
+        float flickStrength = Mathf.Clamp(
+            flickVector.magnitude * flickPower, 
+            0f, 
+            maxForce
+        );
 
-        // フリックの方向とは逆方向にプレイヤーを移動させる
-        player.transform.position += new Vector3(-flickDirection.x, 0, -flickDirection.y) * flickForce * Time.deltaTime;
+        // 力を加える
+        rb.AddForce(
+            new Vector3(-flickDirection.x, 0, -flickDirection.y) * flickStrength,
+            ForceMode.Impulse
+        );
     }
 }
