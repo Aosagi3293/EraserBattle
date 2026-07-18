@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Container" style="flex-grow: 1;">
+        <ui:Button text="Host" name="HostButton" style="width: 40%; height: 15%; position: absolute; top: 40%; left: 30%; right: 0; bottom: 0; border-left-color: rgb(119, 112, 112); border-right-color: rgb(119, 112, 112); border-top-color: rgb(119, 112, 112); border-bottom-color: rgb(119, 112, 112); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; -unity-font-style: bold; font-size: 32px;"/>
+        <ui:Button text="Client" name="ClientButton" enable-rich-text="true" style="width: 40%; height: 15%; position: absolute; top: 60%; left: 30%; right: 0%; bottom: auto; border-top-width: 2px; border-left-width: 2px; border-bottom-width: 2px; border-right-width: 2px; border-left-color: rgb(119, 112, 112); border-right-color: rgb(119, 112, 112); border-top-color: rgb(119, 112, 112); border-bottom-color: rgb(119, 112, 112); font-size: 32px; -unity-font-style: bold;"/>
+    </ui:VisualElement>
+</ui:UXML>
