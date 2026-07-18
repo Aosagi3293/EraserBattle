@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Netcode;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : NetworkBehaviour
 {
     // プレイヤー
     private GameObject player;
@@ -26,6 +27,12 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
+        // オブジェクトのオーナーでなければ無視
+        // if(IsOwner == false)
+        // {
+        //     return;
+        // }
+
         // マウスの左クリックの開始を検知
         if(Mouse.current.leftButton.wasPressedThisFrame)
         {
